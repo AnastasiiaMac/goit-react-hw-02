@@ -44,14 +44,17 @@ export default function App() {
         totalFeedback={totalFeedback}
         handleClick={handleClick}
       />
-      <Feedback
-        positiveFeedback={positiveFeedback}
-        totalFeedback={totalFeedback}
-        good={reviewsNumber.good}
-        neutral={reviewsNumber.neutral}
-        bad={reviewsNumber.bad}
-      />
-      <Notification totalFeedback={totalFeedback} />
+      {totalFeedback > 0 ? (
+        <Feedback
+          positiveFeedback={positiveFeedback}
+          totalFeedback={totalFeedback}
+          good={reviewsNumber.good}
+          neutral={reviewsNumber.neutral}
+          bad={reviewsNumber.bad}
+        />
+      ) : (
+        <Notification totalFeedback={totalFeedback} />
+      )}
     </div>
   );
 }
